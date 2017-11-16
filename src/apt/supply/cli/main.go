@@ -32,8 +32,7 @@ func main() {
 		logger.Error("Unable to load buildpack manifest: %s", err.Error())
 		os.Exit(10)
 	}
-	logger.Info("manifest");
-	logger.Info(manifest);
+	logger.Info("manifest %v", buildpackDir);
 
 	stager := libbuildpack.NewStager(os.Args[1:], logger, manifest)
 	if err := stager.CheckBuildpackValid(); err != nil {
