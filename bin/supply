@@ -14,17 +14,7 @@ echo "-----> Running go build supply"
 echo "_1_ $BUILD_DIR _2_ $CACHE_DIR _3_ $DEPS_DIR _4_ $DEPS_IDX"
 echo "ENV ENV ENV"
 export DEPS_DIR=$DEPS_DIR
-env
 
 GOROOT=$GoInstallDir/go GOPATH=$BUILDPACK_DIR $GoInstallDir/go/bin/go build -o $output_dir/supply apt/supply/cli
 
 $output_dir/supply "$BUILD_DIR" "$CACHE_DIR" "$DEPS_DIR" "$DEPS_IDX"
-
-echo "ENV ENV ENV ENV"
-env
-echo '--> /home/vcap/deps/0/include WUT'
-ls -al /home/vcap/deps/0/include
-ls -al /usr/lib/pkgconfig
-ls -al usr/lib/pkgconfig
-
-apt-cache policy libpoppler-qt5-dev
