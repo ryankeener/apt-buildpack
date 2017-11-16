@@ -24,3 +24,7 @@ echo "ENV ENV ENV ENV"
 env
 echo '--> /home/vcap/deps/0/include WUT'
 ls -al /home/vcap/deps/0/include
+ls -al /usr/lib/pkgconfig
+ls -al usr/lib/pkgconfig
+
+apt-cache policy libpoppler-qt5-dev
