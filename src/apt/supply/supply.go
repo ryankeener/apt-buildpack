@@ -66,7 +66,6 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
-	s.Log.Info(output)
 
 	s.Log.BeginStep("Downloading apt packages")
 	if output, err := s.Apt.Download(); err != nil {
@@ -74,7 +73,6 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
-	s.Log.Info(output)
 
 	s.Log.BeginStep("Installing apt packages")
 	if output, err := s.Apt.Install(); err != nil {
@@ -82,7 +80,6 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
-	s.Log.Info(output)
 	s.Log.Info("DONE Installing apt packages")
 
 	s.Log.BeginStep("Creating Symlinks")
