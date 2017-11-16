@@ -66,6 +66,7 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
+	s.Log.Info(output)
 
 	s.Log.BeginStep("Downloading apt packages")
 	if output, err := s.Apt.Download(); err != nil {
@@ -73,6 +74,7 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
+	s.Log.Info(output)
 
 	s.Log.BeginStep("Installing apt packages")
 	if output, err := s.Apt.Install(); err != nil {
@@ -80,6 +82,7 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
+	s.Log.Info(output)
 	s.Log.Info("DONE Installing apt packages")
 
 	s.Log.BeginStep("Creating Symlinks")
@@ -105,6 +108,8 @@ func (s *Supplier) createSymlinks() error {
 		{"usr/lib/pkgconfig", "pkgconfig"},
 	} {
 		dest := filepath.Join(s.Stager.DepDir(), "apt", dirs[0])
+		s.Log.Info("creating symlinks %v %v %v", dirs[0], dirs[1], s.Stager.DepDir())
+		s.Log.Info("dest %v", dest)
 		if exists, err := libbuildpack.FileExists(dest); err != nil {
 			return err
 		} else if exists {
