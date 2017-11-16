@@ -20,7 +20,7 @@ func main() {
 	cmd.Run()
 
 	buildpackDir, err := libbuildpack.GetBuildpackDir()
-	logger.Info('buildpackDir');
+	logger.Info("buildpackDir");
 	logger.Info(buildpackDir);
 	if err != nil {
 		logger.Error("Unable to determine buildpack directory: %s", err.Error())
@@ -32,7 +32,7 @@ func main() {
 		logger.Error("Unable to load buildpack manifest: %s", err.Error())
 		os.Exit(10)
 	}
-	logger.Info('manifest');
+	logger.Info("manifest");
 	logger.Info(manifest);
 
 	stager := libbuildpack.NewStager(os.Args[1:], logger, manifest)
