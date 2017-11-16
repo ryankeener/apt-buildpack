@@ -80,7 +80,9 @@ func (s *Supplier) Run() error {
 		s.Log.Info(output)
 		return err
 	}
+	s.Log.Info("DONE Installing apt packages")
 
+	s.Log.BeginStep("Creating Symlinks")
 	s.Log.Debug("Creating Symlinks")
 	if err := s.createSymlinks(); err != nil {
 		s.Log.Error("Could not link files: %v", err)
